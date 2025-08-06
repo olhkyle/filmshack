@@ -10,18 +10,25 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-native-masked-view/masked-view": "^0.3.2",
     "@react-navigation/bottom-tabs": "^7.2.1",
     "@react-navigation/drawer": "^7.1.2",
     "@react-navigation/native": "^7.0.15",
     "@react-navigation/stack": "^7.1.2",
+    "@supabase/supabase-js": "^2.53.0",
+    "@tanstack/react-query": "^5.84.1",
+    "@tanstack/react-query-devtools": "^5.84.1",
+    "es-toolkit": "^1.39.8",
     "react": "18.3.1",
+    "react-hook-form": "^7.62.0",
     "react-native": "0.77.1",
     "react-native-encrypted-storage": "^4.0.3",
     "react-native-gesture-handler": "^2.24.0",
     "react-native-reanimated": "^3.17.1",
     "react-native-safe-area-context": "^5.3.0",
-    "react-native-screens": "^4.9.1"
+    "react-native-screens": "^4.9.1",
+    "zod": "^3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
