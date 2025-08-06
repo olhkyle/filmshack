@@ -1,4 +1,4 @@
-package com.timeshack
+package com.filmshack
 
 import android.app.Application
 import com.facebook.react.PackageList

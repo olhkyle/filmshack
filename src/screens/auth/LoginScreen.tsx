@@ -26,7 +26,7 @@ function LoginScreen() {
           inputMode="email"
           touched={touched.email}
           returnKeyType="next"
-          blurOnSubmit={false}
+          submitBehavior="submit"
           onSubmitEditing={() => passwordRef.current?.focus()}
           {...getTextInputProps('email')}
         />
@@ -36,7 +36,8 @@ function LoginScreen() {
           error={errors.password}
           touched={touched.password}
           returnKeyType="join"
-          blurOnSubmit={false}
+          textContentType="oneTimeCode"
+          maxLength={20}
           onSubmitEditing={handleSubmit}
           {...getTextInputProps('password')}
           secureTextEntry
