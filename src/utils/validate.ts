@@ -21,9 +21,7 @@ function validateUser(values: ValidateTargetValues) {
 }
 
 function validateLogin(values: ValidateTargetValues) {
-  const errors = validateUser(values);
-
-  return errors;
+  return validateUser(values);
 }
 
 function validateSignUp(
