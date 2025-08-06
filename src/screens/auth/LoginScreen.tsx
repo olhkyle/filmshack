@@ -1,66 +1,98 @@
-import React, {useRef} from 'react';
-import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import InputField from '../../components/InputField';
-import useForm from '../../hooks/useForm';
-import {validateLogin} from '../../utils';
-import CustomButton from '../../components/CustomButton';
+import React from 'react';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { useForm, Controller } from 'react-hook-form';
+// import { zodResolver } from '@hookform/resolvers/zod';
+import { CustomButton, InputField } from '../../components';
+import { type LoginSchema } from '../../constants/schema';
 
-function LoginScreen() {
-  const passwordRef = useRef<TextInput | null>(null);
-  const {values, touched, errors, getTextInputProps} = useForm({
-    initialValue: {email: '', password: ''},
-    validate: validateLogin,
-  });
-  // console.log('useForm', errors);
-  const handleSubmit = () => {
-    console.log('here', values);
-  };
+const LoginScreen = () => {
+	const {
+		control,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<LoginSchema>({
+		// resolver: zodResolver(loginSchema),
+		defaultValues: {
+			email: '',
+			password: '',
+		},
+	});
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <InputField
-          autoFocus
-          placeholder="이메일"
-          error={errors.email}
-          inputMode="email"
-          touched={touched.email}
-          returnKeyType="next"
-          submitBehavior="submit"
-          onSubmitEditing={() => passwordRef.current?.focus()}
-          {...getTextInputProps('email')}
-        />
-        <InputField
-          ref={passwordRef}
-          placeholder="비밀번호"
-          error={errors.password}
-          touched={touched.password}
-          returnKeyType="join"
-          textContentType="oneTimeCode"
-          maxLength={20}
-          onSubmitEditing={handleSubmit}
-          {...getTextInputProps('password')}
-          secureTextEntry
-        />
-      </View>
-      <CustomButton
-        label="로그인"
-        variant="filled"
-        size="lg"
-        onPress={handleSubmit}
-      />
-    </SafeAreaView>
-  );
-}
+	const onSubmit = (data: LoginSchema) => {
+		console.log('here', data);
+	};
+
+	return (
+		<SafeAreaView style={styles.container}>
+			<View style={styles.inputContainer}>
+				<Controller
+					name="email"
+					control={control}
+					rules={{
+						required: true,
+					}}
+					render={({ field: { value, onChange, onBlur } }) => (
+						<InputField
+							inputMode="email"
+							placeholder="your@example.com"
+							value={value}
+							onChangeText={onChange}
+							onBlur={onBlur}
+							error={errors.email?.message}
+							returnKeyType="next"
+							submitBehavior="submit"
+							// onSubmitEditing={() => passwordRef.current?.focus()}
+							autoFocus
+						/>
+					)}
+				/>
+				<Controller
+					name="password"
+					control={control}
+					rules={{
+						required: true,
+						maxLength: 20,
+					}}
+					render={({ field: { value, onChange, onBlur } }) => (
+						<InputField
+							placeholder="비밀번호"
+							value={value}
+							onChangeText={onChange}
+							onBlur={onBlur}
+							error={errors.password?.message}
+							returnKeyType="join"
+							textContentType="oneTimeCode"
+							// onSubmitEditing={handleSubmit}
+							secureTextEntry
+						/>
+					)}
+				/>
+				{/* <InputField
+					inputMode="email"
+					placeholder="이메일"
+					error={errors.email}
+					touched={touched.email}
+					returnKeyType="next"
+					submitBehavior="submit"
+					onSubmitEditing={() => passwordRef.current?.focus()}
+					autoFocus
+					{...getTextInputProps('email')}
+				/> */}
+			</View>
+			<CustomButton label={'Login'} variant={'solid'} size={'lg'} onPress={handleSubmit(onSubmit)} />
+		</SafeAreaView>
+	);
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 30,
-  },
-  inputContainer: {
-    gap: 20,
-  },
+	container: {
+		flex: 1,
+		gap: 16,
+		margin: 30,
+	},
+	inputContainer: {
+		gap: 16,
+	},
 });
 
 export default LoginScreen;

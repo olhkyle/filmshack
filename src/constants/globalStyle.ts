@@ -41,7 +41,7 @@ const colors = {
     200: '#b1dcfd',
     300: '#7fc7ff',
     400: '#1c9eff',
-    500: '#1c9eff',
+    500: '#0289f0',
   },
   GREEN: {
     100: '#f1fcf8',
