@@ -1,16 +1,11 @@
 import React, { ForwardedRef, forwardRef, useRef } from 'react';
-import { StyleSheet, TextInput, View, TextInputProps, Pressable } from 'react-native';
+import { StyleSheet, TextInput, View, TextInputProps, Pressable, Text } from 'react-native';
 import { colors } from '../constants/globalStyle';
 import { deviceHeight } from '../constants/deviceHeight';
 import { mergeRefs } from '../utils';
 
 interface InputFieldProps extends TextInputProps {
 	disabled?: boolean;
-	error?: string;
-}
-interface InputFieldProps extends TextInputProps {
-	disabled?: boolean;
-	// touched: boolean;
 	error?: string;
 }
 
@@ -34,8 +29,8 @@ const InputField = forwardRef(({ disabled = false, error, ...props }: InputField
 					autoCorrect={false}
 					{...props}
 				/>
-				{/* {touched && Boolean(error) && <Text style={styles.error}>{error}</Text>} */}
 			</View>
+			{error && <Text style={[styles.text, styles.error]}>{error}</Text>}
 		</Pressable>
 	);
 });
@@ -44,6 +39,7 @@ const styles = StyleSheet.create({
 	container: {
 		borderWidth: 1,
 		borderColor: colors.GREY[200],
+		borderRadius: 12,
 		padding: deviceHeight >= 700 ? 15 : 10,
 	},
 	input: {
@@ -58,6 +54,9 @@ const styles = StyleSheet.create({
 	inputError: {
 		borderWidth: 1,
 		borderColor: colors.RED[300],
+	},
+	text: {
+		paddingLeft: 4,
 	},
 	error: {
 		color: colors.RED[400],
