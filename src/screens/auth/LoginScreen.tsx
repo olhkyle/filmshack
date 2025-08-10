@@ -1,9 +1,9 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import React, { useRef } from 'react';
+import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
-// import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { CustomButton, InputField } from '../../components';
-import { type LoginSchema } from '../../constants/schema';
+import { loginSchema, type LoginSchema } from '../../constants/schema';
 
 const LoginScreen = () => {
 	const {
@@ -11,13 +11,14 @@ const LoginScreen = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<LoginSchema>({
-		// resolver: zodResolver(loginSchema),
+		resolver: zodResolver(loginSchema),
 		defaultValues: {
 			email: '',
 			password: '',
 		},
 	});
 
+	const passwordRef = useRef<TextInput | null>(null);
 	const onSubmit = (data: LoginSchema) => {
 		console.log('here', data);
 	};
@@ -41,7 +42,7 @@ const LoginScreen = () => {
 							error={errors.email?.message}
 							returnKeyType="next"
 							submitBehavior="submit"
-							// onSubmitEditing={() => passwordRef.current?.focus()}
+							onSubmitEditing={() => passwordRef.current?.focus()}
 							autoFocus
 						/>
 					)}
@@ -55,6 +56,7 @@ const LoginScreen = () => {
 					}}
 					render={({ field: { value, onChange, onBlur } }) => (
 						<InputField
+							ref={passwordRef}
 							placeholder="비밀번호"
 							value={value}
 							onChangeText={onChange}
@@ -62,7 +64,6 @@ const LoginScreen = () => {
 							error={errors.password?.message}
 							returnKeyType="join"
 							textContentType="oneTimeCode"
-							// onSubmitEditing={handleSubmit}
 							secureTextEntry
 						/>
 					)}
