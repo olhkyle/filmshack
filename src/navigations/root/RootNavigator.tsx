@@ -3,11 +3,9 @@ import MainBottomTabsNavigator from '../drawer/MainBottomTabsNavigator';
 import AuthStackNavigator from '../stack/AuthStackNavigator';
 
 function RootNavigator() {
-  const isLoggedIn = false;
+	const isLoggedIn = false;
 
-  return (
-    <>{isLoggedIn ? <MainBottomTabsNavigator /> : <AuthStackNavigator />}</>
-  );
+	return <>{isLoggedIn ? <MainBottomTabsNavigator /> : <AuthStackNavigator />}</>;
 }
 
 export default RootNavigator;
