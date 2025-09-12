@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		15497891CAF85B800CEDC437 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		271FB3D82E73C0B90021CAA1 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 271FB3D52E73C0B90021CAA1 /* Ionicons.ttf */; };
+		271FB3D92E73C0B90021CAA1 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 271FB3D72E73C0B90021CAA1 /* Octicons.ttf */; };
+		271FB3DA2E73C0B90021CAA1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 271FB3D62E73C0B90021CAA1 /* MaterialIcons.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		95B29E09345308472F1AE49F /* libPods-FilmShack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B173AC5A0310A89565C650 /* libPods-FilmShack.a */; };
@@ -20,6 +23,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FilmShack/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = FilmShack/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		18B173AC5A0310A89565C650 /* libPods-FilmShack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilmShack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		271FB3D52E73C0B90021CAA1 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		271FB3D62E73C0B90021CAA1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		271FB3D72E73C0B90021CAA1 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		5123D6FC74EAC70B23145740 /* Pods-FilmShack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmShack.debug.xcconfig"; path = "Target Support Files/Pods-FilmShack/Pods-FilmShack.debug.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FilmShack/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FilmShack/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +48,7 @@
 		13B07FAE1A68108700A75B9A /* FilmShack */ = {
 			isa = PBXGroup;
 			children = (
+				271FB3D42E73BFA90021CAA1 /* Fonts */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -49,6 +56,16 @@
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
 			name = FilmShack;
+			sourceTree = "<group>";
+		};
+		271FB3D42E73BFA90021CAA1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				271FB3D52E73C0B90021CAA1 /* Ionicons.ttf */,
+				271FB3D62E73C0B90021CAA1 /* MaterialIcons.ttf */,
+				271FB3D72E73C0B90021CAA1 /* Octicons.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -158,6 +175,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				271FB3D82E73C0B90021CAA1 /* Ionicons.ttf in Resources */,
+				271FB3D92E73C0B90021CAA1 /* Octicons.ttf in Resources */,
+				271FB3DA2E73C0B90021CAA1 /* MaterialIcons.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				15497891CAF85B800CEDC437 /* PrivacyInfo.xcprivacy in Resources */,
